@@ -9,6 +9,10 @@ Exec["apt-update"] -> Package <| |>
 
 package { "libpq-dev": ensure => present }
 
+class { "postgresql::server":
+  postgres_password => 'mypass'
+}
+
 class { 'rbenv':
   install_dir => '/opt/rbenv',
   latest      => true
